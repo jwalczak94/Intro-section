@@ -43,20 +43,20 @@
     width: 15rem;
     min-height: 100vh;
     min-height: 100dvh;
-    background-color: var(--white);
+    background-color: var(--light);
     padding: 4rem 1.5rem 8rem 1.5rem;
 
     @include m.flex-center(2.25rem, column);
 
     position: fixed;
     top: 0;
-    right: -16rem;
+    right: 0;
     z-index: 99;
 
-    transition: 0.5s ease-in;
+    transform: translateX(100%);
+    transition: All 0.5s ease-in;
 
     @include c.respond(tab-port) {
-      background-color: transparent;
       position: static;
       min-height: auto;
       width: auto;
@@ -67,6 +67,7 @@
       flex-basis: 66.67%;
 
       padding: 0;
+      transform: translateX(0);
     }
   }
 
@@ -92,10 +93,6 @@
     &__container {
       @include c.respond(tab-port) {
         position: relative;
-
-        &:hover .navigation__links__list {
-          display: flex !important;
-        }
       }
     }
 
@@ -113,21 +110,11 @@
           color: var(--dark);
         }
       }
-
-      @include c.respond(tab-port) {
-        @media (hover: hover) {
-          &:hover &__arrow {
-            transform: rotate(180deg);
-          }
-        }
-      }
     }
 
     &__list {
       @include m.flex-center(1rem, column);
       padding: 1.5rem 0 0.5rem 1.5rem;
-
-      display: none;
 
       @include c.respond(tab-port) {
         background-color: var(--white);
@@ -137,16 +124,13 @@
         min-width: max-content;
 
         position: absolute;
-        top: 0.75rem;
+        top: 2.25rem;
         right: 0;
         z-index: 99;
 
-        &:hover {
-          display: flex !important;
-          top: 2.25rem;
+        transform: translateY(-180%) scaleX(0.1);
 
-          transition: top 0.3s 0.2s;
-        }
+        transition: all 0.3s ease-in;
       }
 
       &-item {
