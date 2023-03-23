@@ -9,23 +9,21 @@ const menuMobile = document.getElementById("menu"),
 function mobileMenu(menu) {
   menu.classList.toggle("change");
   menuMobile.classList.toggle("active");
+  overlay.classList.toggle("hidden");
 
-  if (menuMobile.classList.contains("active")) {
-    overlay.style.display = "block";
-  } else {
-    overlay.style.display = "none";
+  if (!menuMobile.classList.contains("active")) {
     featuresMenu.classList.remove("active-list");
     companyMenu.classList.remove("active-list");
   }
-
-  btns.forEach(function (btn, key) {
-    btn.addEventListener("click", function () {
-      listItems[key].classList.toggle("active-list");
-      btnArrows[key].src = "./images/icon-arrow-up.svg";
-
-      if (listItems[key].classList.contains("active-list")) {
-        btnArrows[key].src = "./images/icon-arrow-down.svg";
-      }
-    });
-  });
 }
+
+btns.forEach(function (btn, key) {
+  btn.addEventListener("click", function () {
+    listItems[key].classList.toggle("active-list");
+    btnArrows[key].src = "./images/icon-arrow-up.svg";
+
+    if (listItems[key].classList.contains("active-list")) {
+      btnArrows[key].src = "./images/icon-arrow-down.svg";
+    }
+  });
+});

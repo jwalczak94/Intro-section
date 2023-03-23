@@ -28,26 +28,30 @@
   z-index: 39;
 }
 
-.active {
-  animation: slideIn 0.5s 0.1s ease forwards;
+.hidden {
+  display: block;
+}
+
+.overflow {
+  overflow: hidden;
 }
 
 .active-list {
-  display: flex !important;
+  transform: translateY(0) scale(1) !important;
 }
 
-/* MOBILE NAVIGATION - ANIMATION */
-@keyframes slideIn {
-  0% {
+.active {
+  transform: translateX(0) !important;
+}
+
+@keyframes navLinkFade {
+  from {
     opacity: 0;
-    right: -400px;
+    transform: translateX(50px);
   }
-  80% {
+  to {
     opacity: 1;
-    right: 0;
-  }
-  100% {
-    right: 0;
+    transform: translateX(0);
   }
 }
 /*
@@ -150,20 +154,20 @@ a {
   width: 15rem;
   min-height: 100vh;
   min-height: 100dvh;
-  background-color: var(--white);
+  background-color: var(--light);
   padding: 4rem 1.5rem 8rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 2.25rem;
   position: fixed;
   top: 0;
-  right: -16rem;
+  right: 0;
   z-index: 99;
-  transition: 0.5s ease-in;
+  transform: translateX(100%);
+  transition: All 0.5s ease-in;
 }
 @media only screen and (min-width: 48rem) {
   .navigation__menu {
-    background-color: transparent;
     position: static;
     min-height: auto;
     width: auto;
@@ -172,6 +176,7 @@ a {
     justify-content: space-between;
     flex-basis: 66.67%;
     padding: 0;
+    transform: translateX(0);
   }
 }
 .navigation__links {
@@ -200,9 +205,6 @@ a {
   .navigation__links__container {
     position: relative;
   }
-  .navigation__links__container:hover .navigation__links__list {
-    display: flex !important;
-  }
 }
 .navigation__links__button {
   background: none;
@@ -219,17 +221,11 @@ a {
     color: var(--dark);
   }
 }
-@media only screen and (min-width: 48rem) and (hover: hover) {
-  .navigation__links__button:hover .navigation__links__button__arrow {
-    transform: rotate(180deg);
-  }
-}
 .navigation__links__list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem 0 0.5rem 1.5rem;
-  display: none;
 }
 @media only screen and (min-width: 48rem) {
   .navigation__links__list {
@@ -239,14 +235,11 @@ a {
     padding: 1.5rem;
     min-width: max-content;
     position: absolute;
-    top: 0.75rem;
+    top: 2.25rem;
     right: 0;
     z-index: 99;
-  }
-  .navigation__links__list:hover {
-    display: flex !important;
-    top: 2.25rem;
-    transition: top 0.3s 0.2s;
+    transform: translateY(-180%) scaleX(0.1);
+    transition: all 0.3s ease-in;
   }
 }
 .navigation__links__list-item {
