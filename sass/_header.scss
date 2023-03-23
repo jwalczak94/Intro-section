@@ -1,0 +1,213 @@
+@use "./mixin" as m;
+@use "./mixin" as c;
+
+.navigation {
+  @include m.flex-center(0, row);
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 85rem;
+  margin-inline: auto;
+  padding: 1rem 1rem 1.5rem 1rem;
+
+  @include c.respond(tab-port) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+
+    padding-bottom: 4rem;
+    padding-top: 1.5rem;
+  }
+
+  &__icon-mobile {
+    cursor: pointer;
+
+    display: grid;
+    gap: 6px;
+
+    position: relative;
+    z-index: 999;
+
+    @include c.respond(tab-port) {
+      display: none;
+    }
+
+    &__bar {
+      background-color: var(--dark);
+      height: 2px;
+      width: 32px;
+    }
+  }
+
+  &__menu {
+    width: 15rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--white);
+    padding: 4rem 1.5rem 8rem 1.5rem;
+
+    @include m.flex-center(2.25rem, column);
+
+    position: fixed;
+    top: 0;
+    right: -16rem;
+    z-index: 99;
+
+    transition: 0.5s ease-in;
+
+    @include c.respond(tab-port) {
+      position: static;
+      min-height: auto;
+      width: auto;
+
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-basis: 66.67%;
+
+      padding: 0;
+    }
+  }
+
+  &__links {
+    @include m.flex-center(1rem, column);
+
+    @include c.respond(tab-port) {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
+
+    @media (hover: hover) {
+      &:hover a {
+        color: var(--dark);
+      }
+    }
+
+    @include c.respond(tab-port) {
+      font-size: 0.875rem;
+      line-height: 1rem;
+    }
+
+    &__container {
+      @include c.respond(tab-port) {
+        position: relative;
+
+        &:hover .navigation__links__list {
+          display: flex !important;
+        }
+      }
+    }
+
+    &__button {
+      background: none;
+      border: none;
+      color: var(--greyDark);
+      cursor: pointer;
+
+      @include m.flex-center(1rem, row);
+      align-items: center;
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--dark);
+        }
+      }
+
+      @include c.respond(tab-port) {
+        @media (hover: hover) {
+          &:hover &__arrow {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &__list {
+      @include m.flex-center(1rem, column);
+      padding: 1.5rem 0 0.5rem 1.5rem;
+
+      display: none;
+
+      @include c.respond(tab-port) {
+        background-color: var(--white);
+        box-shadow: var(--itemShadow);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        min-width: max-content;
+
+        position: absolute;
+        top: 0.75rem;
+        right: 0;
+        z-index: 99;
+
+        &:hover {
+          display: flex !important;
+          top: 2.25rem;
+
+          transition: top 0.3s 0.2s;
+        }
+      }
+
+      &-item {
+        @include m.flex-center(1rem, row);
+        align-items: center;
+
+        @media (hover: hover) {
+          &:hover a {
+            color: var(--dark);
+          }
+        }
+      }
+    }
+  }
+
+  &__buttons-container {
+    @include m.flex-center(1rem, column);
+    align-items: center;
+    justify-content: center;
+
+    @include c.respond(tab-port) {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
+
+    &__login,
+    &__register {
+      font-size: 0.875rem;
+      line-height: 1rem;
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--dark);
+          border-color: var(--dark);
+        }
+      }
+    }
+
+    &__register {
+      display: inline-block;
+      border: 1.75px solid var(--greyDark);
+      border-radius: 0.875rem;
+      padding: 0.8125rem;
+      text-align: center;
+      width: 100%;
+
+      @include c.respond(tab-port) {
+        padding: 0.8125rem 1.375rem;
+      }
+    }
+  }
+}
+
+/* MOBIE NAVIGATION - TO X */
+.change .bar1 {
+  transform: translate(0, 8px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -8px) rotate(45deg);
+}

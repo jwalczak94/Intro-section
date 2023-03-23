@@ -1,0 +1,60 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+p,
+h1 {
+  overflow-wrap: break-word;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  color: var(--greyDark);
+  font-family: var(--ff);
+  font-weight: 500;
+
+  min-height: 100dvh;
+  min-height: 100vh;
+  height: 100%;
+
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  font: inherit;
+  color: var(--greyDark);
+}
+
+* {
+  transition: all ease 0.2s;
+}
