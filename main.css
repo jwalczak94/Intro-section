@@ -319,25 +319,30 @@ a {
 }
 @media only screen and (min-width: 48rem) {
   .main-section {
-    grid-template-columns: 1fr 47%;
+    grid-template-columns: 1fr 41.93%;
     align-items: end;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .main-section {
+    gap: 0;
   }
 }
 @media only screen and (min-width: 90rem) {
   .main-section {
-    gap: 0;
     padding-bottom: 8rem;
   }
 }
 .main-section__description {
   max-width: 33.75rem;
-  margin-inline: auto;
   text-align: center;
   padding: 0 1rem;
+  margin-inline: auto;
 }
 @media only screen and (min-width: 48rem) {
   .main-section__description {
     text-align: left;
+    margin: 0;
   }
 }
 @media only screen and (min-width: 90rem) {
@@ -347,10 +352,10 @@ a {
 }
 .main-section__description h1 {
   color: var(--dark);
-  font-size: clamp(2.25rem, -2.6389rem + 10.1852vw, 5rem);
+  font-size: clamp(2.25rem, -0.8929rem + 6.5476vw, 5rem);
   font-weight: 700;
   line-height: 1.16;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.014em;
   margin-bottom: 1rem;
 }
 @media only screen and (min-width: 48rem) {
@@ -360,11 +365,9 @@ a {
   }
 }
 .main-section__description p {
-  line-height: 1.625;
-}
-.main-section__description h1 + p,
-.main-section__description h1 + a {
   font-size: clamp(1rem, 0.9278rem + 0.3082vw, 1.125rem);
+  line-height: 1.625;
+  max-width: 28rem;
 }
 .main-section__description__button {
   display: inline-block;
@@ -372,6 +375,7 @@ a {
   border: 1px solid var(--dark);
   border-radius: 1rem;
   color: var(--white);
+  font-size: clamp(1rem, 0.9278rem + 0.3082vw, 1.125rem);
   font-weight: 700;
   line-height: 1;
   padding: 1rem 1.5rem;
@@ -388,6 +392,7 @@ a {
   .main-section__description__button {
     margin-bottom: 6.5rem;
     margin-top: 3rem;
+    padding: 1.1875rem 1.875rem;
   }
 }
 .main-section__description__logos {
