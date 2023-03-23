@@ -90,6 +90,7 @@ li {
 }
 
 body {
+  background-color: var(--light);
   color: var(--greyDark);
   font-family: var(--ff);
   font-weight: 500;
@@ -162,6 +163,7 @@ a {
 }
 @media only screen and (min-width: 48rem) {
   .navigation__menu {
+    background-color: transparent;
     position: static;
     min-height: auto;
     width: auto;
@@ -309,7 +311,7 @@ a {
 }
 
 .main-section {
-  max-width: 1145rem;
+  max-width: 1145px;
   margin-inline: auto;
   padding-bottom: 6rem;
   display: grid;

@@ -56,6 +56,7 @@
     transition: 0.5s ease-in;
 
     @include c.respond(tab-port) {
+      background-color: transparent;
       position: static;
       min-height: auto;
       width: auto;
