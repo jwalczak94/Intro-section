@@ -1,3 +1,5 @@
+@use "./mixin" as m;
+
 .overlay {
   display: none;
   -webkit-backdrop-filter: blur(5px);
@@ -23,7 +25,11 @@
 }
 
 .active-list {
-  transform: translateY(0) scale(1) !important;
+  display: flex !important;
+
+  @include m.respond(tab-port) {
+    transform: translateY(0) scale(1) !important;
+  }
 }
 
 .active {
